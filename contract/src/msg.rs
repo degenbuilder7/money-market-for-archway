@@ -1,23 +1,25 @@
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
+use cosmwasm_schema::{cw_serde, QueryResponses};
+use cosmwasm_std::Uint128;
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-pub struct InstantiateMsg {}
+#[cw_serde]
+pub struct InstantiateMsg {
+    pub owner: Option<String>,
+}
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub enum ExecuteMsg {
-    Dummy {},
+    DepositCollateral { amount: Uint128, valuation: Uint128 },
+    WithdrawCollateral { amount: Uint128 },
+    AdjustValuation { new_valuation: Uint128 },
+    PayTax {},
+    LiquidateCollateral { collateral_id: String },
+    Deposit { amount: Uint128 },
+    Withdraw { amount: Uint128 },
+    Borrow { amount: Uint128 },
+    Repay { amount: Uint128 },
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-pub enum QueryMsg {
-    Hello {},
-}
-
-// We define a custom struct for each query response
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-pub struct HelloResponse {
-    pub msg: String,
+#[cw_serde]
+pub struct QueryMsg {
+    pub collateral_id: String,
 }
