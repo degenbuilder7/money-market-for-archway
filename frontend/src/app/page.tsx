@@ -63,11 +63,11 @@ export default function l() {
                 </div>
               </div>
               <img
-                src="/placeholder.svg"
+                src="/defi.png"
                 width="550"
                 height="550"
                 alt="Hero"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
+                className="mx-auto overflow-hidden rounded-xl object-contain sm:w-full lg:order-last lg:aspect-square"
               />
             </div>
           </div>
@@ -136,11 +136,11 @@ export default function l() {
                 </div>
               </div>
               <img
-                src="/placeholder.svg"
+                src="/cover.png"
                 width="550"
                 height="310"
                 alt="Features"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                className="mx-auto overflow-hidden rounded-xl object-contain object-center sm:w-full lg:order-last"
               />
             </div>
           </div>
